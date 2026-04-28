@@ -5,6 +5,7 @@ import os
 
 app = Flask(__name__)
 
+
 # 🔑 Put your OpenWeather API key here
 API_KEY = "cddbac2b6b6a4c1d301f284b0b71e7c8"
 
