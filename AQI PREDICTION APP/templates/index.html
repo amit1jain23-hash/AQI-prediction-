@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AQI Predictor</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #56ccf2, #2f80ed);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 350px;
+            margin: 80px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background: #2f80ed;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: #1c60c7;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #2f80ed;
+            font-weight: bold;
+        }
+
+        .aqi {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #444;
+        }
+
+        img {
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>🌫 AQI Prediction App</h2>
+
+    <form method="POST">
+        <input type="text" name="pm25" placeholder="Enter PM2.5" required>
+        <input type="text" name="pm10" placeholder="Enter PM10" required>
+        <br>
+        <input type="submit" value="Predict AQI">
+    </form>
+
+    <!-- Prediction -->
+    {% if prediction is not none %}
+        <div class="result">
+            Predicted AQI: {{ prediction }}
+        </div>
+    {% endif %}
+
+    <!-- API AQI -->
+    {% if aqi is not none %}
+        <div class="aqi">
+            Current AQI: {{ aqi }}
+        </div>
+    {% endif %}
+
+    <!-- Graph -->
+    {% if graph %}
+        <img src="{{ url_for('static', filename='graph.png') }}" width="100%">
+    {% endif %}
+
+</div>
+
+</body>
+</html>
