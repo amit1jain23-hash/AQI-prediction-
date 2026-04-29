@@ -74,6 +74,8 @@ def home():
             try:
                 aqi = data['list'][0]['main']['aqi']
                 components = data['list'][0]['components']
+                labels = list(components.keys())
+                values = list(components.values())
 
                 category, advice, color = get_aqi_info(aqi)
                 aqi_text = f"{city}: AQI {aqi} ({category})"
@@ -89,7 +91,7 @@ def home():
                 plt.title(f"Pollution Levels in {city}")
                 plt.tight_layout()
 
-                plt.savefig("static/graph.png")
+                
                 plt.close()
 
                 graph = "graph.png"
@@ -98,13 +100,13 @@ def home():
                 aqi_text = "Error fetching AQI data"
 
     return render_template(
-        'index.html',
-        prediction=prediction,
-        aqi_text=aqi_text,
-        advice=advice,
-        color=color,
-        graph=graph
-    )
+    'index.html',
+    prediction=prediction,
+    aqi_text=aqi_text,
+    color=color,
+    labels=labels,
+    values=values
+)
 
 if __name__ == "__main__":
     app.run(debug=True)
