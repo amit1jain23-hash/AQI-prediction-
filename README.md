@@ -1,29 +1,41 @@
-# 🌫️ AQI Prediction App
+# 🌫 AQI Prediction & Monitoring Web App
 
-A simple web application built using Flask that:
-- Predicts Air Quality Index (AQI) using PM2.5 and PM10 values
-- Fetches real-time AQI data from OpenWeather API
-- Visualizes air pollution components using graphs
+A full-stack web application that provides real-time Air Quality Index (AQI) data and predicts AQI based on user input (PM2.5 & PM10 levels).
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 📊 AQI Prediction (based on user input)
-- 🌍 Real-time AQI data (API integration)
-- 📈 Data visualization using Matplotlib
-- 🎨 Clean and responsive UI
-
----
-
-## 🛠️ Tech Stack
-
-- Backend: Python, Flask
-- Frontend: HTML, CSS
-- Visualization: Matplotlib
-- API: OpenWeatherMap API
+-  Fetch real-time AQI using OpenWeatherMap API
+-  Interactive charts using Chart.js
+-  AQI prediction based on PM2.5 and PM10 inputs
+-  Dynamic UI with color-coded AQI levels
+-  Health advice based on AQI category
+-  Error handling for invalid city inputs
 
 ---
 
-## 📁 Project Structure
+## 🛠 Tech Stack
+
+- **Backend:** Flask (Python)
+- **Frontend:** HTML, CSS, Jinja2
+- **API:** OpenWeatherMap Air Pollution API
+- **Visualization:** Chart.js
+- **Libraries:** requests, pandas (optional)
+
+---
+
+##  Screenshots
+
+(Add screenshots here)
+
+---
+
+##  Installation
+
+```bash
+git clone https://github.com/your-username/aqi-app.git
+cd aqi-app
+pip install flask requests
+python app.py
 
