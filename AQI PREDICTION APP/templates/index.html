@@ -20,9 +20,10 @@
     </form>
 
     {% if aqi_text %}
-    <div class="card">
-        <h2>{{ aqi_text }}</h2>
-    </div>
+    <div class="card" style="color: {{ color }}">
+    <h2>{{ aqi_text }}</h2>
+    <p style="font-size: 12px;">Updated at: {{ time }}</p>
+</div>
     {% endif %}
 
     {% if prediction %}
@@ -31,14 +32,41 @@
     </div>
     {% endif %}
 
-    {% if graph %}
+    {% if labels %}
     <div class="card">
         <canvas id="aqiChart"></canvas>
     </div>
     {% endif %}
 
 </div>
+{% if labels %}
+<script>
+    const canvas = document.getElementById('aqiChart');
 
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
 
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ labels | tojson | safe }},
+                datasets: [{
+                    label: 'Pollution Levels',
+                    data: {{ values | tojson | safe }},
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+</script>
+{% endif %}
 </body>
 </html>
