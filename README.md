@@ -18,7 +18,7 @@ A full-stack web application that provides real-time Air Quality Index (AQI) dat
 ## 🛠 Tech Stack
 
 - **Backend:** Flask (Python)
-- **Frontend:** HTML, CSS, Jinja2
+- **Frontend:** HTML, CSS, 
 - **API:** OpenWeatherMap Air Pollution API
 - **Visualization:** Chart.js
 - **Libraries:** requests, pandas (optional)
